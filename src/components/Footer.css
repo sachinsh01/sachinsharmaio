@@ -1,0 +1,185 @@
+.footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 80px 0 40px;
+    /* Remove horizontal padding */
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    width: 100%;
+}
+
+.footer-header {
+    width: 100%;
+    margin-bottom: 60px;
+    padding: 0 20px;
+    /* Small padding to prevent edge touching */
+    box-sizing: border-box;
+}
+
+.footer-title {
+    font-size: 10vw;
+    /* Adjusted to fit "Engineering is Art" on one line */
+    font-weight: 800;
+    /* ExtraBold */
+    line-height: 1;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: -0.04em;
+    width: 100%;
+    display: block;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px;
+    /* Add padding back to content */
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.newsletter-section {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.newsletter-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.newsletter-section p {
+    font-size: 0.9rem;
+    color: #cccccc;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.newsletter-form .input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 10px;
+}
+
+.newsletter-form input {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1rem;
+    width: 100%;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.newsletter-form input::placeholder {
+    color: #888888;
+}
+
+.newsletter-form button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 100px;
+}
+
+.link-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.link-column h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.link-column a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.link-column a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 0.8rem;
+    color: #ffffff;
+    padding-top: 40px;
+}
+
+.footer-info p,
+.coordinates p {
+    margin: 2px 0;
+}
+
+.copyright {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        padding: 0 20px;
+    }
+
+    .footer-title {
+        font-size: 9vw;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .footer-grid {
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .footer-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 40px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .copyright {
+        order: 3;
+        margin-top: 20px;
+        font-size: 0.7rem;
+        opacity: 0.5;
+    }
+}

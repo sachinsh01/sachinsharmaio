@@ -1,0 +1,437 @@
+.scroll-container-outer {
+    width: 100%;
+    height: 100vh;
+    /* Force full height */
+    overflow: hidden;
+    background: #050505;
+    color: #fff;
+    border-top: 1px dashed #333;
+    position: relative;
+}
+
+/* Scanlines Overlay */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.2));
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.3;
+}
+
+/* Progress Bar */
+.project-progress-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #111;
+    z-index: 20;
+}
+
+.project-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #ff3333;
+    transition: width 0.1s linear;
+}
+
+.projects-scroll-wrapper {
+    display: flex;
+    width: max-content;
+    /* Let content dictate width */
+    height: 100vh;
+    will-change: transform;
+}
+
+.project-panel {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-right: 1px dashed #333;
+    box-sizing: border-box;
+}
+
+.panel-content {
+    width: 85%;
+    height: 65%;
+    /* Further reduced height */
+    margin-top: 120px;
+    /* Increased spacing from top to clear navbar completely */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    /* Slightly reduced padding to save space */
+    background: rgba(10, 10, 10, 0.85);
+    border: 1px solid #333;
+    backdrop-filter: blur(10px);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panel-content:hover {
+    border-color: #555;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.blueprint-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: #666;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 20px;
+}
+
+.p-status {
+    color: #ff3333;
+    font-weight: 700;
+}
+
+.blink {
+    animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.panel-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.p-title {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 5rem;
+    /* Reduced from 8rem to prevent overflow */
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    position: relative;
+    color: #eee;
+    mix-blend-mode: difference;
+    word-break: break-word;
+}
+
+.p-title .hollow {
+    -webkit-text-stroke: 2px #fff;
+    color: transparent;
+    margin-left: 10px;
+}
+
+.p-desc {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    max-width: 100%;
+    color: #a0a0a0;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.p-specs {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px dashed #444;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    /* Allow wrapping of entire spec section if needed */
+    gap: 20px;
+}
+
+.spec-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 100%;
+    /* Allow full width usage */
+}
+
+.spec-label {
+    width: 100%;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.spec-item {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #aaa;
+    background: transparent;
+    padding: 6px 12px;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    cursor: default;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+.spec-item:hover {
+    border-color: #ff3333;
+    color: #ff3333;
+    background: rgba(255, 51, 51, 0.05);
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.2);
+}
+
+/* Tiny tech accent on left */
+.spec-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 100%;
+    background: #ff3333;
+    transition: height 0.3s ease;
+}
+
+.spec-item:hover::before {
+    height: 100%;
+}
+
+.p-stat {
+    text-align: right;
+}
+
+.stat-value {
+    display: block;
+    font-family: 'Courier New', monospace;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ff3333;
+    line-height: 1;
+}
+
+.stat-label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: #666;
+    letter-spacing: 2px;
+}
+
+.footer-line {
+    width: 100%;
+    height: 1px;
+    background: #333;
+    margin-bottom: 10px;
+}
+
+.p-ref {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    color: #444;
+}
+
+/* Markers */
+.tech-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ff3333;
+    transition: all 0.3s ease;
+}
+
+.panel-content:hover .tech-marker {
+    box-shadow: 0 0 10px #ff3333;
+}
+
+.tm-tl {
+    top: -2px;
+    left: -2px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.tm-br {
+    bottom: -2px;
+    right: -2px;
+    border-left: none;
+    border-top: none;
+}
+
+@media (max-width: 1200px) {
+    .p-title {
+        font-size: 5rem;
+    }
+
+    .panel-content {
+        width: 90%;
+        height: 90%;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .p-title {
+        font-size: 3rem;
+    }
+
+    .p-specs {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    /* ... existing media query ... */
+    .p-stat {
+        text-align: left;
+    }
+}
+
+/* Modal Styling */
+.clickable-panel {
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clickable-panel:hover {
+    transform: scale(1.01);
+}
+
+.click-hint {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: #ff3333;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+.project-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.project-modal-content {
+    background: #0a0a0a;
+    border: 1px solid #333;
+    padding: 40px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    border: 1px solid #333;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-modal-btn:hover {
+    color: #ff3333;
+}
+
+.modal-title {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 10px;
+}
+
+.modal-specs {
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.modal-spec-tag {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #aaa;
+    border: 1px solid #333;
+    padding: 5px 10px;
+}
+
+.modal-details {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-details li {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 20px;
+}
+
+.modal-details li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #ff3333;
+    font-weight: bold;
+}

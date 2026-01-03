@@ -1,0 +1,128 @@
+.skills-section {
+    position: relative;
+    padding: 100px 50px;
+    background-color: #050505;
+    color: #ffffff;
+    min-height: 80vh;
+    border-top: 1px dashed #333;
+    /* Dashed separator for blueprint style */
+    overflow: hidden;
+}
+
+/* Inherit grid from About.css via class or duplicate */
+/* But since it's a separate component, let's just make sure it aligns */
+
+.skills-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.skills-header {
+    margin-bottom: 60px;
+}
+
+.skills-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+}
+
+/* Reuse hollow-text from About.css if global, or redefine */
+.hollow-text {
+    -webkit-text-stroke: 2px #fff;
+    color: transparent;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.skill-card {
+    background: rgba(10, 10, 10, 0.5);
+    border: 1px solid #333;
+    padding: 30px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.skill-card:hover {
+    border-color: #666;
+    background-color: rgba(20, 20, 20, 0.8);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.card-title {
+    font-family: 'Courier New', monospace;
+    /* Tech font */
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #fff;
+    border-bottom: 1px dashed #444;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.card-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border: 1px solid #333;
+    color: #ccc;
+    background: #000;
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-tag {
+    border-color: #666;
+    color: #fff;
+}
+
+/* Markers */
+.marker {
+    position: absolute;
+    color: #333;
+    font-family: monospace;
+    font-size: 2rem;
+    font-weight: 100;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .skills-section {
+        padding: 60px 20px;
+    }
+
+    .skills-title {
+        font-size: 9vw;
+        word-wrap: normal;
+        margin-left: -2px;
+        /* Visual optical alignment for large text */
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}

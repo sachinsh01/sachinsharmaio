@@ -1,0 +1,316 @@
+.work-page-container {
+    min-height: 100vh;
+    background: #050505;
+    color: #fff;
+    padding-top: 150px;
+    /* Increased Clearance */
+    font-family: 'Helvetica Neue', sans-serif;
+    position: relative;
+    /* overflow: hidden removed to fix sticky behavior */
+}
+
+/* Background Grid Overlay */
+.work-page-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.work-page-title {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 60px;
+    letter-spacing: -2px;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* LEFT SIDEBAR */
+.work-sidebar {
+    position: relative;
+    padding: 50px;
+    border-right: 1px dashed #333;
+}
+
+.sticky-wrapper {
+    position: sticky;
+    top: 200px;
+    /* Increased sticky offset to prevent navbar intersection */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-right: 40px;
+    /* Space for connecting line */
+}
+
+.context-block {
+    position: relative;
+}
+
+/* Decorative bracket for context */
+.context-block::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #ff3333;
+    box-shadow: 0 0 10px #ff3333;
+    border-radius: 2px;
+}
+
+.context-role {
+    font-size: 3.5rem;
+    /* Slightly smaller for better fit */
+    font-weight: 900;
+    line-height: 0.95;
+    margin: 0;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.context-company {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    color: #ff3333;
+    margin: 10px 0 0 0;
+}
+
+.context-period {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: #888;
+    margin-top: 5px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #444;
+}
+
+.context-stack {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.ctx-tag {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    border: 1px solid #333;
+    background: rgba(0, 0, 0, 0.5);
+    color: #aaa;
+    transition: all 0.3s ease;
+}
+
+.ctx-tag:hover {
+    border-color: #ff3333;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 51, 51, 0.2);
+}
+
+/* RIGHT FEED */
+.work-feed {
+    padding: 50px;
+    padding-top: 5vh;
+}
+
+.experience-card {
+    min-height: 50vh;
+    border: 1px solid #1a1a1a;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    margin-bottom: 80px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Active State visual indication */
+.experience-card:hover {
+    border-color: #333;
+    /* transform: translateX(10px); removed */
+}
+
+/* Highlight the active card if we could pass active state class, 
+   but hover works for interaction feedback */
+
+.card-vis-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.card-id {
+    font-family: 'Courier New', monospace;
+    color: #666;
+    font-weight: 700;
+    border: 1px solid #333;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+}
+
+.card-line {
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(90deg, #333, transparent);
+}
+
+.card-desc {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 30px;
+    max-width: 650px;
+}
+
+.card-achievements {
+    list-style: none;
+    /* Ensure no default bullets */
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    color: #888;
+}
+
+.card-achievements li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.card-achievements li::before {
+    content: '>';
+    color: #ff3333;
+    font-weight: bold;
+}
+
+/* Decorative Corners for cards */
+.experience-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid #ff3333;
+    border-right: 2px solid #ff3333;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.experience-card:hover::after {
+    opacity: 1;
+}
+
+.mobile-work-header {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .work-page-title {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .work-sidebar {
+        display: none;
+    }
+
+    .mobile-work-header {
+        display: block;
+        margin-bottom: 20px;
+        border-bottom: 1px dashed #333;
+        padding-bottom: 20px;
+    }
+
+    .m-ctx-role {
+        font-size: 1.8rem;
+        font-weight: 900;
+        margin: 0;
+        line-height: 1;
+        color: #fff;
+    }
+
+    .m-ctx-company {
+        font-family: 'Courier New', monospace;
+        font-size: 1.2rem;
+        color: #ff3333;
+        margin: 5px 0;
+    }
+
+    .m-ctx-client {
+        font-family: 'Courier New', monospace;
+        font-size: 0.9rem;
+        color: #ccc;
+        margin-bottom: 5px;
+    }
+
+    .m-ctx-period {
+        font-family: 'Courier New', monospace;
+        font-size: 0.9rem;
+        color: #888;
+        margin-bottom: 15px;
+    }
+
+    .m-ctx-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .m-ctx-tag {
+        font-family: 'Courier New', monospace;
+        font-size: 0.7rem;
+        padding: 4px 8px;
+        border: 1px solid #333;
+        background: #111;
+        color: #aaa;
+    }
+
+    .sticky-wrapper {
+        position: static;
+        padding-right: 0;
+    }
+
+    .context-role {
+        font-size: 2.5rem;
+    }
+
+    .work-feed {
+        padding: 30px;
+    }
+
+    .experience-card {
+        margin-bottom: 50px;
+    }
+}

@@ -1,0 +1,74 @@
+.explore-section {
+    position: relative;
+    padding: 100px 50px;
+    background-color: #000;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Contain the absolute images */
+}
+
+
+
+.explore-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 60px;
+    z-index: 2;
+}
+
+.explore-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 2;
+    /* Content above image */
+}
+
+.explore-item {
+    position: relative;
+}
+
+.explore-link {
+    text-decoration: none;
+    cursor: none;
+    /* Custom cursor handles this */
+}
+
+.explore-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 6vw;
+    /* Responsive large text */
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    display: block;
+}
+
+/* Dimming effect for non-hovered items */
+.explore-text.dimmed {
+    color: #333;
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .explore-header {
+        text-align: center;
+        width: 100%;
+    }
+
+
+
+    .explore-text {
+        font-size: 12vw;
+    }
+}

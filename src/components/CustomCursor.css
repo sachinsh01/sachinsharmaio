@@ -1,0 +1,16 @@
+/* Global Cursor Reset */
+* {
+    cursor: none !important;
+}
+
+/* Ensure links/buttons don't show the hand cursor, as we provide our own visual */
+a,
+button {
+    cursor: none !important;
+}
+
+/* Custom Cursor class merely for identifying the element in DevTools if needed */
+.custom-cursor {
+    pointer-events: none;
+    z-index: 10000;
+}
