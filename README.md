@@ -11,4 +11,4 @@ Designed with a clean, minimal UI and built using a static frontend architecture
 - Fully responsive across devices
 - Projects, skills, and experience sections
 - Contact form integration (Formspree)
-- Newsletter subscription support
+- Newsletter subscription support (Formspree)
