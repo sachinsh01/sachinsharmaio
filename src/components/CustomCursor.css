@@ -14,3 +14,18 @@ button {
     pointer-events: none;
     z-index: 10000;
 }
+
+@media (max-width: 900px) {
+    .custom-cursor {
+        display: none !important;
+    }
+
+    * {
+        cursor: auto !important;
+    }
+
+    a,
+    button {
+        cursor: pointer !important;
+    }
+}

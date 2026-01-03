@@ -145,7 +145,8 @@
     position: relative;
     color: #eee;
     mix-blend-mode: difference;
-    word-break: break-word;
+    word-break: normal;
+    overflow-wrap: break-word;
 }
 
 .p-title .hollow {
@@ -303,18 +304,48 @@
 
 @media (max-width: 768px) {
     .p-title {
-        font-size: 3rem;
+        font-size: 8vw;
+        /* Responsive font size */
+        word-break: normal;
+        /* Prevent breaking words */
+        overflow-wrap: break-word;
+        white-space: normal;
+        line-height: 1.1;
+    }
+
+    .panel-content {
+        margin-top: 80px;
+        /* Reduced top margin for mobile */
+        height: auto;
+        /* Allow content to dictate height, but capped by max-height if needed */
+        max-height: 85vh;
+        padding: 20px;
+        justify-content: flex-start;
+        /* Align to top to avoid overlap */
+        gap: 20px;
+    }
+
+    .p-desc {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
     }
 
     .p-specs {
         flex-direction: column;
         align-items: flex-start;
-        gap: 30px;
+        gap: 15px;
+        padding-top: 15px;
+        border-top: 1px dashed #333;
     }
 
-    /* ... existing media query ... */
+    .panel-header {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
     .p-stat {
         text-align: left;
+        margin-top: 10px;
     }
 }
 
