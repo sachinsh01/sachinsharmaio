@@ -19,7 +19,14 @@ const Quotes = () => {
     }, []);
 
     return (
-        <section id="quotes" className="quotes-section">
+        <motion.section
+            id="quotes"
+            className="quotes-section"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+        >
             <div className="quotes-container">
                 <div className="quote-display">
                     <AnimatePresence mode='wait'>
@@ -47,7 +54,7 @@ const Quotes = () => {
                     ))}
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };
 

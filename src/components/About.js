@@ -45,6 +45,17 @@ const About = () => {
                                 context-aware AI solutions and high-performance UIs.
                             </p>
                         </div>
+
+                        <div className="spec-row">
+                            <span className="spec-key">EDUCATION</span>
+                            <div className="spec-value">
+                                Vellore Institute of Technology
+                                <div style={{ fontSize: '0.9rem', marginTop: '5px', fontWeight: '400', color: '#ccc' }}>
+                                    B. Tech (Computer science and Engineering)<br />
+                                    CGPA: 8.63/10 • July 2019 - June 2023
+                                </div>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </div>
