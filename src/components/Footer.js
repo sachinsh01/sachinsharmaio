@@ -104,14 +104,14 @@ const Footer = () => {
 
                 <div className="footer-bottom">
                     <div className="footer-info">
-                        <p>Delhi, India</p>
+                        <p>Bengaluru, India</p>
                     </div>
                     <div className="copyright">
                         <p>&copy; Copyright SachinSharma {new Date().getFullYear()}</p>
                     </div>
                     <div className="coordinates">
-                        <p>28.6139° N,</p>
-                        <p>77.2090° E</p>
+                        <p>12.9716° N,</p>
+                        <p>77.5946° E</p>
                     </div>
                 </div>
             </div>
